@@ -350,11 +350,11 @@ function get_uri($prefix_slash = true)
 {
     if (isset($_SERVER['PATH_INFO']))
     {
-        $uri = $_SERVER['PATH_INFO'];
+        $uri = urldecode($_SERVER['PATH_INFO']);
     }
     elseif (isset($_SERVER['REQUEST_URI']))
     {
-        $uri = $_SERVER['REQUEST_URI'];
+        $uri = urldecode($_SERVER['REQUEST_URI']);
         if (strpos($uri, $_SERVER['SCRIPT_NAME']) === 0)
         {
             $uri = substr($uri, strlen($_SERVER['SCRIPT_NAME']));
